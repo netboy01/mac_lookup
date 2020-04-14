@@ -21,3 +21,7 @@ Run the below command to execute the code
 sudo docker run --name demo_name --env MAC_ADD=44:38:39:ff:ef:57 demo_project
 
 
+For the security purpose I am useing the API_KEY genrated by the MAC website. I am not passing direct user name or password.
+API_KEY can also be used by passing as a parameter to the script for the security purpose rather than writing in the script.
+
+
