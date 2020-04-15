@@ -12,7 +12,8 @@
 #MAC_ADD='44:38:39:ff:ef:57'
 Path=$PWD
 
-echo "Mac address given by user is :" $MAC_ADD "\n"
+echo "Mac address given by user in parameter file is :" $MAC_ADD
+
 
 #curl command to lookup the given MAC address
 

@@ -8,7 +8,11 @@
 #Date		: 14th April 2020
 ########################################################
 
-echo "Building Docker image Started"
+echo "***********Execution Started****************"
+
+echo " Building Docker image Started......."
+
+echo " Please wait.. It may take few mint"
 
 docker build -t demo_project . > /dev/null 2>&1
 
@@ -20,6 +24,7 @@ then
  	exit 1; 	
 fi
 sleep 1
+
 echo "Docker Image build sucesssfully"
 
 
