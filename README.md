@@ -9,6 +9,7 @@ File4  : parameter_file.txt - Conatin the MAC Address which need to search.
 
 
 Exectution Steps:-
+
 Step1: Clone all the files to the local.
 
 Step2: Run the below Command.
@@ -16,6 +17,7 @@ Step2: Run the below Command.
 chmod +x out_script.sh
 
 Step3: Execute the script.
+
 ./out_script.sh
 
 
