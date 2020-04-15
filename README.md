@@ -1,24 +1,22 @@
 
+File 1 : lookup_script.sh - contain the lookup script.
+
+File 2 : out_script.sh - Contain the docker image creation script.
+
+File2  : DockerFile - Contain docker build details.
+
+File4  : parameter_file.txt - Conatin the MAC Address which need to search. 
+
 
 Exectution Steps:-
+Step1: Clone all the files to the local.
 
-File 1 - script.sh - contain the lookup script
-File2 -DockerFile - Contain docker build details
+Step2: Run the below Command.
 
-Step1:
-push both the file to local system
+chmod +x out_script.sh
 
-Step2:
-Build the docker image
-docker build -t demo_project .
-
-Step3:
-check that image has been craeted
-docker images | grep demo_project
-
-Step4
-Run the below command to execute the code
-sudo docker run --name demo_name --env MAC_ADD=44:38:39:ff:ef:57 demo_project
+Step3: Execute the script.
+./out_script.sh
 
 
 For the security purpose I am useing the API_KEY genrated by the MAC website. I am not passing direct user name or password.
