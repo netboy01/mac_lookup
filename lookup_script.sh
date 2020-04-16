@@ -9,7 +9,6 @@
 ########################################################
 
 
-#MAC_ADD='44:38:39:ff:ef:57'
 Path=$PWD
 
 echo "Mac address given by user in parameter file is :" $MAC_ADD
@@ -17,7 +16,16 @@ echo "Mac address given by user in parameter file is :" $MAC_ADD
 
 #curl command to lookup the given MAC address
 
-curl -s "https://api.macaddress.io/v1?apiKey=at_vqevcUk6R3hPVJiKZjj6Dn1jneVE3&output=json&search=$MAC_ADD" | jq '.vendorDetails' > $Path/MAC_Detail.txt 
+valid_chk=$(curl  "https://api.macaddress.io/v1?apiKey=$API_KEY&output=json&search=$MAC_ADD" | jq '.[]' | grep blockFound | cut -d":" -f2)
+
+
+if [ $valid_chk != "true," ]
+then
+        echo "Given MAC Address $MAC_ADD does not belong to any registered block."
+        exit 1;
+fi
+
+curl -s "https://api.macaddress.io/v1?apiKey=$API_KEY&output=json&search=$MAC_ADD" | jq '.vendorDetails' > $Path/MAC_Detail.txt 
 
 res=$?
 

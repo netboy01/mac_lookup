@@ -8,7 +8,22 @@
 #Date		: 14th April 2020
 ########################################################
 
+clear
+
 echo "***********Execution Started****************"
+PARM1=$(cat parameter_file.txt | grep API_KEY | cut -d':' -f2)
+
+read -p "Enter MAC address : " PARM2
+
+if [ `echo $PARM2 | egrep "^([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$"` ]; then
+
+    echo "This is a valid MAC address formate"	
+else
+    echo " MAC address $PARM2 is not valid."
+    echo " Please try Again by giving valid MAC address e.g - 44:38:39:ff:ef:57"
+    exit 1;
+fi
+
 
 echo " Building Docker image Started......."
 
@@ -28,8 +43,6 @@ sleep 1
 echo "Docker Image build sucesssfully"
 
 
-PARM1=$(cat parameter_file.txt)
-
 #Command to run the docker image
 
-docker run --name demo_name_$RANDOM  --env MAC_ADD=$PARM1 demo_project
+docker run --name demo_name_$RANDOM  --env MAC_ADD=$PARM2 --env API_KEY=$PARM1 demo_project
